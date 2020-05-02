@@ -2,11 +2,12 @@ import React from 'react';
 import { Layout, Row, Col } from 'antd';
 import ClimateCard from './components/ClimateCard';
 import { HeartFilled } from '@ant-design/icons';
-
+import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
-import { alexisPlaces, itzelPlaces } from './models';
+import PropTypes from 'prop-types';
 
-function App() {
+function App(props) {
+  const { climateCards } = props;
   const { Content, Header } = Layout;
 
   const colProps = {
@@ -23,23 +24,16 @@ function App() {
       </Header>
       <Layout>
         <Content>
-          <br />
           <Row align="middle" justify="center">
-            <Col {...colProps}>
-              <ClimateCard
-                cardPlaces={alexisPlaces}
-                ownerCardName="Usuario 1"
-                cityName="Cuautitlán Izcalli"
-              />
-            </Col>
-
-            <Col {...colProps}>
-              <ClimateCard
-                cardPlaces={itzelPlaces}
-                ownerCardName="Usario 2"
-                cityName="Londres"
-              />
-            </Col>
+            {climateCards.map((card) => (
+              <Col {...colProps} key={card.id}>
+                <ClimateCard
+                  cardPlaces={card.places}
+                  ownerCardName={card.owner}
+                  cityName={card.selectedPlaceName}
+                />
+              </Col>
+            ))}
           </Row>
         </Content>
       </Layout>
@@ -47,4 +41,18 @@ function App() {
   );
 }
 
-export default App;
+App.prototypes = {
+  climateCards: PropTypes.arrayOf(PropTypes.object),
+};
+
+App.defaultProps = {
+  climateCards: [{}],
+};
+
+function mapStateToProps(state) {
+  return {
+    climateCards: state.climateCards,
+  };
+}
+
+export default connect(mapStateToProps, {})(App);

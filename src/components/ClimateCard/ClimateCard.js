@@ -58,14 +58,14 @@ function ClimateCard(props) {
 ClimateCard.propTypes = {
   cityName: PropTypes.string,
   ownerCardName: PropTypes.string,
-  cardPlaces: PropTypes.string,
+  cardPlaces: PropTypes.arrayOf(PropTypes.object),
   loading: PropTypes.bool,
 };
 
 ClimateCard.defaultProps = {
   cityName: 'cityName',
   ownerCardName: 'ownerCardName',
-  cardPlaces: 'cardPlaces',
+  cardPlaces: [{}],
   loading: false,
 };
 
