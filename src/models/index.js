@@ -1,20 +1,20 @@
 export const alexisPlaces = [
   {
-    id: 'a',
+    id: 'p01',
     label: 'Cuautitlán Izcalli, Estado de México',
     value: 'a',
     lat: '19.42',
     lon: '101.92',
   },
   {
-    id: 'b',
+    id: 'p02',
     label: 'Tepotzotlán, Estado de México',
     value: 'b',
     lat: '19.42',
     lon: '101.90',
   },
   {
-    id: 'c',
+    id: 'p03',
     label: 'Polanco, Ciudad de México',
     value: 'c',
     lat: '19.42',
@@ -24,21 +24,21 @@ export const alexisPlaces = [
 
 export const itzelPlaces = [
   {
-    id: 'a',
+    id: 'p04',
     label: 'Morelia, Michoacán',
     value: 'a',
     lat: '19.42',
     lon: '101.90',
   },
   {
-    id: 'b',
+    id: 'p04',
     label: 'Ziracuaretiro, Michoacán',
     value: 'b',
     lat: '19.42',
     lon: '101.91',
   },
   {
-    id: 'c',
+    id: 'p05',
     label: 'Uruapan, Michoacán',
     value: 'c',
     lat: '19.42',
