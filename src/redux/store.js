@@ -12,6 +12,13 @@ if (
   enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
 }
 
+/**
+ *  This app both ways of initializing Redux state.
+ *  It has an initial state passed as the second argument of
+ *  createstore but each reducer has an initial state returned
+ *  when a reducer recives undefinied
+ */
+
 const store = createStore(
   rootReducer,
   initialState,

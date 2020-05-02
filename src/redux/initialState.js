@@ -1,6 +1,18 @@
 export default {
   climateCards: [
-    { id: 'alexis', owner: 'Alexis Herlanda', cardPlaces: [], placeWheaterData: {} },
-    { id: 'itzel', owner: 'Itzel Gaona', cardPlaces: [], placeWheaterData: {} },
+    {
+      id: '000001',
+      owner: 'Alexis Herlanda',
+      selectedPlaceName: 'Lugar 1',
+      cardPlaces: [],
+      placeWheaterData: {},
+    },
+    {
+      id: '000002',
+      owner: 'Itzel Gaona',
+      selectedPlaceName: 'Lugar 1',
+      cardPlaces: [],
+      placeWheaterData: {},
+    },
   ],
 };
