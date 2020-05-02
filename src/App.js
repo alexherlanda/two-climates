@@ -1,6 +1,7 @@
 import React from 'react';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Typography } from 'antd';
 import ClimateCard from './components/ClimateCard';
+import { HeartFilled } from '@ant-design/icons';
 
 import 'antd/dist/antd.css';
 import { alexisPlaces, itzelPlaces } from './models';
@@ -17,7 +18,9 @@ function App() {
 
   return (
     <Layout hasSider={false}>
-      <Header />
+      <Header>
+        <HeartFilled style={{ color: 'white', fontSize: '30px' }} />
+      </Header>
       <Layout>
         <Content>
           <br />
@@ -25,7 +28,7 @@ function App() {
             <Col {...colProps}>
               <ClimateCard
                 cardPlaces={alexisPlaces}
-                ownerCardName="Alexis"
+                ownerCardName="Usuario 1"
                 cityName="Cuautitlán Izcalli"
               />
             </Col>
@@ -33,7 +36,7 @@ function App() {
             <Col {...colProps}>
               <ClimateCard
                 cardPlaces={itzelPlaces}
-                ownerCardName="Itzel"
+                ownerCardName="Usario 2"
                 cityName="Londres"
               />
             </Col>
