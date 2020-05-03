@@ -1,7 +1,14 @@
+// Redux
 import { createStore, applyMiddleware, compose } from 'redux';
 import initialState from './initialState';
 import rootReducer from './reducers/rootReducer';
+// Redux-Saga Middleware
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from '../redux-sagas/rootSaga';
 
+/**
+ *  Configuration to debug reux with  ReduxDevTools
+ */
 const enhancers = [];
 const isDevelopment = process.env.NODE_ENV === 'development';
 if (
@@ -12,8 +19,10 @@ if (
   enhancers.push(window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
 }
 
+const sagaMiddleware = createSagaMiddleware();
+
 /**
- *  This app both ways of initializing Redux state.
+ *  1. This app both ways of initializing Redux state.
  *  It has an initial state passed as the second argument of
  *  createstore but each reducer has an initial state returned
  *  when a reducer recives undefinied
@@ -22,7 +31,9 @@ if (
 const store = createStore(
   rootReducer,
   initialState,
-  compose(applyMiddleware(), ...enhancers)
+  compose(applyMiddleware(sagaMiddleware), ...enhancers)
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
