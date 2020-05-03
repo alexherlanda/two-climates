@@ -31,6 +31,7 @@ function App(props) {
                   cardPlaces={card.places}
                   ownerCardName={card.owner}
                   cityName={card.selectedPlaceName}
+                  activePlace={card.activePlace}
                 />
               </Col>
             ))}
