@@ -3,8 +3,13 @@ export default {
     {
       id: '000001',
       owner: 'Alexis Herlanda',
-      selectedPlaceName: 'Lugar 1',
-      selectedPlaceId: '',
+      activePlace: {
+        id: 'p01',
+        label: 'Cuautitlán Izcalli, Estado de México',
+        value: 'a',
+        lat: '19.42',
+        lon: '101.92',
+      },
       places: [
         {
           id: 'p01',
@@ -33,25 +38,30 @@ export default {
     {
       id: '000002',
       owner: 'Itzel Gaona',
-      selectedPlaceName: 'Lugar 1',
-      selectedPlaceId: '',
+      activePlace: {
+        id: 'p04',
+        label: 'Ziracuaretiro, Michoacán',
+        value: 'b',
+        lat: '19.42',
+        lon: '101.91',
+      },
       places: [
         {
-          id: 'p04',
+          id: 'p05',
           label: 'Morelia, Michoacán',
           value: 'a',
           lat: '19.42',
           lon: '101.90',
         },
         {
-          id: 'p04',
+          id: 'p06',
           label: 'Ziracuaretiro, Michoacán',
           value: 'b',
           lat: '19.42',
           lon: '101.91',
         },
         {
-          id: 'p05',
+          id: 'p07',
           label: 'Uruapan, Michoacán',
           value: 'c',
           lat: '19.42',
