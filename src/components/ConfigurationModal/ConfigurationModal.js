@@ -3,24 +3,38 @@ import { Modal, Form, Select } from 'antd';
 import PropTypes from 'prop-types';
 
 function ConfigurationModal(props) {
-  const { ownerCardName, cardPlaces } = props;
+  const { ownerCardName, cardPlaces, handleOnOk } = props;
   const { ...other } = props;
   const { Option } = Select;
+  const [form] = Form.useForm();
 
   const createOptions = () => {
     return cardPlaces.map((place) => (
-      <Option key={place.id} value={place.value}>
+      <Option key={place.id} value={place.id}>
         {place.label}
       </Option>
     ));
   };
 
   return (
-    <Modal title={`Ajustes para ${ownerCardName}`} {...other}>
-      <Form layout="vertical">
+    <Modal
+      onOk={() => {
+        form
+          .validateFields()
+          .then((values) => {
+            handleOnOk(values);
+          })
+          .catch((info) => {
+            console.log('Validate Failed:', info);
+          });
+      }}
+      title={`Ajustes para ${ownerCardName}`}
+      {...other}
+    >
+      <Form form={form} layout="vertical" scrollToFirstError>
         <Form.Item
           rules={[{ required: true, message: 'Por favor selecciona una ciudad' }]}
-          name="city"
+          name="placeId"
           label={`¿Donde esta esta ${ownerCardName}?`}
         >
           <Select placeholder="Selecciona una ciudad" showSearch>
