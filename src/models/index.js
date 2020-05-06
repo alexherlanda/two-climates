@@ -31,7 +31,7 @@ export const itzelPlaces = [
     lon: '101.90',
   },
   {
-    id: 'p04',
+    id: '3979654',
     label: 'Ziracuaretiro, Michoacán',
     value: 'b',
     lat: '19.42',
