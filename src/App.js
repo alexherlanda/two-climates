@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout, Row, Col } from 'antd';
 import ClimateCard from './components/ClimateCard';
 import { HeartFilled } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import PropTypes from 'prop-types';
+import { activePlaceRequest } from '../src/redux/actions/cardClimateActions';
 
 function App(props) {
-  const { climateCards } = props;
+  const { climateCards, activePlaceRequest: activePlaceReq } = props;
   const { Content, Header } = Layout;
 
   const colProps = {
@@ -16,6 +17,9 @@ function App(props) {
     lg: 12,
     xl: 12,
   };
+  useEffect(() => {
+    activePlaceReq({ cardId: '2' });
+  }, [activePlaceReq]);
 
   return (
     <Layout hasSider={false}>
@@ -28,6 +32,7 @@ function App(props) {
             {climateCards.map((card) => (
               <Col {...colProps} key={card.id}>
                 <ClimateCard
+                  loading={card.isLoading}
                   cardPlaces={card.places}
                   ownerCardName={card.owner}
                   cityName={card.selectedPlaceName}
@@ -56,4 +61,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { activePlaceRequest })(App);
