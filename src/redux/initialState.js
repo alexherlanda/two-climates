@@ -1,7 +1,8 @@
 export default {
   climateCards: [
     {
-      id: '000001',
+      id: '1',
+      isLoading: false,
       owner: 'Alexis Herlanda',
       activePlace: {
         id: 'p01',
@@ -36,7 +37,8 @@ export default {
       placeWheaterData: {},
     },
     {
-      id: '000002',
+      id: '2',
+      isLoading: false,
       owner: 'Itzel Gaona',
       activePlace: {
         id: 'p04',
