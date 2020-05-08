@@ -3,14 +3,9 @@ export default {
     {
       id: '1',
       isLoading: false,
-      owner: 'Alexis Herlanda',
-      activePlace: {
-        id: 'p01',
-        label: 'Cuautitlán Izcalli, Estado de México',
-        value: 'a',
-        lat: '19.42',
-        lon: '101.92',
-      },
+      owner: 'Alexis',
+      activePlaceId: '',
+      data: false,
       places: [
         {
           id: 'p01',
@@ -39,14 +34,9 @@ export default {
     {
       id: '2',
       isLoading: false,
-      owner: 'Itzel Gaona',
-      activePlace: {
-        id: 'p04',
-        label: 'Ziracuaretiro, Michoacán',
-        value: 'b',
-        lat: '19.42',
-        lon: '101.91',
-      },
+      owner: 'Itzel',
+      activePlaceId: '',
+      data: false,
       places: [
         {
           id: 'p05',
