@@ -129,7 +129,7 @@ instance.interceptors.response.use(
           break;
         case 404:
           notification.error({
-            message: ` ${status}: No se encontro el servidor de clima :( `,
+            message: ` ${status}: No se pudo encontrar lo que buscaba :( `,
             description: httpStatusText,
           });
           break;

@@ -1,6 +1,6 @@
 import { fork, all } from 'redux-saga/effects';
-import * as helloWorldSagas from '../redux-sagas/helloWorldSagas';
+import * as climateCardsSagas from '../redux-sagas/climateCardsSagas';
 
 export default function* rootSaga() {
-  yield all([...Object.values(helloWorldSagas)].map(fork));
+  yield all([...Object.values(climateCardsSagas)].map(fork));
 }
