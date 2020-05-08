@@ -1,6 +1,7 @@
 import {
-  SET_ACTIVE_PLACE,
   ACTIVE_PLACE_REQUEST,
+  ACTIVE_PLACE_SUCESS,
+  ACTIVE_PLACE_FAIL,
 } from '../actions/cardClimateActions';
 /**
  *  This app both ways of initializing Redux state.
@@ -15,22 +16,47 @@ let initial = [
 ];
 
 const climateCardsReducer = (state = initial, action) => {
+  let cardToApplyChanges = null;
+  let oldState = null;
+  let newState = null;
   switch (action.type) {
-    case SET_ACTIVE_PLACE:
-      console.log('state :>> ', state);
-      //const activePlace = state.places.find((place) => place.id > action.payload.id);
-      return state;
-
     case ACTIVE_PLACE_REQUEST:
-      const { payload } = action;
-      const { cardId } = payload;
-      const foundCard = state.find((card) => card.id === cardId);
-      const foundCardIndex = state.findIndex((card) => card.id === cardId);
-      const oldState = state;
-      oldState.splice(foundCardIndex, 1);
-      foundCard.isLoading = true;
-      const newState = [...oldState, foundCard];
+      oldState = [...state];
+      cardToApplyChanges = oldState.find(
+        (card) => card.id === action.payload.cardId
+      );
+      newState = oldState.filter((card) => card.id !== action.payload.cardId);
+      newState = [...newState, { ...cardToApplyChanges, isLoading: true }];
       return newState;
+
+    case ACTIVE_PLACE_SUCESS:
+      oldState = [...state];
+      cardToApplyChanges = oldState.find(
+        (card) => card.id === action.payload.cardId
+      );
+      newState = oldState.filter((card) => card.id !== action.payload.cardId);
+      newState = [
+        ...newState,
+        {
+          ...cardToApplyChanges,
+          isLoading: false,
+          data: action.payload.data,
+        },
+      ];
+      return newState;
+
+    case ACTIVE_PLACE_FAIL:
+      oldState = [...state];
+      cardToApplyChanges = oldState.find(
+        (card) => card.id === action.payload.cardId
+      );
+      newState = oldState.filter((card) => card.id !== action.payload.cardId);
+      newState = [
+        ...newState,
+        { ...cardToApplyChanges, isLoading: false, data: false },
+      ];
+      return newState;
+
     default:
       return state;
   }
