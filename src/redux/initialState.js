@@ -1,3 +1,5 @@
+import { alexisPlaces, itzelPlaces } from '../models/index';
+
 export default {
   climateCards: [
     {
@@ -6,30 +8,7 @@ export default {
       owner: 'Alexis',
       activePlaceId: '',
       data: false,
-      places: [
-        {
-          id: '3515807',
-          label: 'Cuautitlán Izcalli, Estado de México',
-          value: 'a',
-          lat: '19.42',
-          lon: '101.92',
-        },
-        {
-          id: 'p02',
-          label: 'Tepotzotlán, Estado de México',
-          value: 'b',
-          lat: '19.42',
-          lon: '101.90',
-        },
-        {
-          id: 'p03',
-          label: 'Polanco, Ciudad de México',
-          value: 'c',
-          lat: '19.42',
-          lon: '101.90',
-        },
-      ],
-      placeWheaterData: {},
+      places: alexisPlaces,
     },
     {
       id: '2',
@@ -37,30 +16,7 @@ export default {
       owner: 'Itzel',
       activePlaceId: '',
       data: false,
-      places: [
-        {
-          id: 'p05',
-          label: 'Morelia, Michoacán',
-          value: 'a',
-          lat: '19.42',
-          lon: '101.90',
-        },
-        {
-          id: '3979654',
-          label: 'Ziracuaretiro, Michoacán',
-          value: 'b',
-          lat: '19.42',
-          lon: '101.91',
-        },
-        {
-          id: 'p07',
-          label: 'Uruapan, Michoacán',
-          value: 'c',
-          lat: '19.42',
-          lon: '101.90',
-        },
-      ],
-      placeWheaterData: {},
+      places: itzelPlaces,
     },
   ],
 };
