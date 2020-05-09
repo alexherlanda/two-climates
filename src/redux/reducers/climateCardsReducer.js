@@ -27,6 +27,15 @@ const climateCardsReducer = (state = initial, action) => {
       );
       newState = oldState.filter((card) => card.id !== action.payload.cardId);
       newState = [...newState, { ...cardToApplyChanges, isLoading: true }];
+      newState.sort(function (a, b) {
+        let result = 0;
+        var keyA = a.id,
+          keyB = b.id;
+        // Compare
+        if (keyA < keyB) result = -1;
+        if (keyA > keyB) result = 1;
+        return result;
+      });
       return newState;
 
     case ACTIVE_PLACE_SUCESS:
@@ -43,6 +52,16 @@ const climateCardsReducer = (state = initial, action) => {
           data: action.payload.data,
         },
       ];
+      newState.sort(function (a, b) {
+        let result = 0;
+        var keyA = a.id,
+          keyB = b.id;
+        // Compare
+        if (keyA < keyB) result = -1;
+        if (keyA > keyB) result = 1;
+        return result;
+      });
+
       return newState;
 
     case ACTIVE_PLACE_FAIL:
@@ -55,6 +74,15 @@ const climateCardsReducer = (state = initial, action) => {
         ...newState,
         { ...cardToApplyChanges, isLoading: false, data: false },
       ];
+      newState.sort(function (a, b) {
+        let result = 0;
+        var keyA = a.id,
+          keyB = b.id;
+        // Compare
+        if (keyA < keyB) result = -1;
+        if (keyA > keyB) result = 1;
+        return result;
+      });
       return newState;
 
     default:
