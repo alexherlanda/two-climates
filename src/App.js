@@ -18,7 +18,8 @@ function App(props) {
     xl: 12,
   };
   useEffect(() => {
-    activePlaceReq({ cardId: '2' });
+    activePlaceReq({ cardId: '1', cityId: 3515807 });
+    activePlaceReq({ cardId: '2', cityId: 3979654 });
   }, [activePlaceReq]);
 
   return (
@@ -36,7 +37,7 @@ function App(props) {
                   cardPlaces={card.places}
                   ownerCardName={card.owner}
                   cityName={card.selectedPlaceName}
-                  activePlace={card.activePlace}
+                  data={card.data}
                 />
               </Col>
             ))}
