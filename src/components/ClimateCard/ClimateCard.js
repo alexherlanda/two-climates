@@ -13,7 +13,7 @@ function ClimateCard(props) {
     ownerCardName,
     cardPlaces,
     loading,
-    activePlace,
+    data,
     setActivePlace: setActivePlaceById,
   } = props;
 
@@ -21,7 +21,6 @@ function ClimateCard(props) {
   const [modalIsVisible, setShowModalIsVisible] = useState(false);
 
   const handleOnOk = (values) => {
-    console.log('values :>> ', values);
     setShowModalIsVisible(false);
     setActivePlaceById({ placeId: values.placeId });
   };
@@ -53,16 +52,21 @@ function ClimateCard(props) {
         <ClimateIcon type="sunny" />
       </Row>
       <Row align="middle" justify="center">
-        <Title> 19° C </Title>
+        <Title> {data ? data.mainCard.temp + '°' : ''} </Title>
       </Row>
       <Row align="middle" justify="center">
-        <Title level={4}> Sunny </Title>
+        <Title level={4}>
+          {data
+            ? data.mainCard.description.charAt(0).toUpperCase() +
+              data.mainCard.description.slice(1)
+            : ''}
+        </Title>
       </Row>
       <Row align="middle" justify="center">
-        <Text>{activePlace.label}</Text>
+        <Text>{data ? data.mainCard.cityName : ''}</Text>
       </Row>
 
-      <ClimateDataGrid />
+      <ClimateDataGrid data={data.dataGrid} />
     </Card>
   );
 }
