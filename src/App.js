@@ -28,11 +28,12 @@ function App(props) {
         <HeartFilled style={{ color: 'white', fontSize: '30px' }} />
       </Header>
       <Layout>
-        <Content>
+        <Content style={{ margin: 20 }}>
           <Row align="middle" justify="center">
             {climateCards.map((card) => (
               <Col {...colProps} key={card.id}>
                 <ClimateCard
+                  cardId={card.id}
                   loading={card.isLoading}
                   cardPlaces={card.places}
                   ownerCardName={card.owner}

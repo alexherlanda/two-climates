@@ -3,8 +3,7 @@ import { Modal, Form, Select } from 'antd';
 import PropTypes from 'prop-types';
 
 function ConfigurationModal(props) {
-  const { ownerCardName, cardPlaces, handleOnOk } = props;
-  const { ...other } = props;
+  const { ownerCardName, cardPlaces, handleOnOk, ...other } = props;
   const { Option } = Select;
   const [form] = Form.useForm();
 
@@ -34,10 +33,10 @@ function ConfigurationModal(props) {
       <Form form={form} layout="vertical" scrollToFirstError>
         <Form.Item
           rules={[{ required: true, message: 'Por favor selecciona una ciudad' }]}
-          name="placeId"
+          name="cityId"
           label={`¿Donde esta esta ${ownerCardName}?`}
         >
-          <Select placeholder="Selecciona una ciudad" showSearch>
+          <Select size="large" placeholder="Selecciona una ciudad" showSearch>
             {createOptions()}
           </Select>
         </Form.Item>

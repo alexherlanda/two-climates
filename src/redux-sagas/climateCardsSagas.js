@@ -1,7 +1,9 @@
 import { getClimateByCityId } from '../services/openWheather';
 import { takeEvery, put, call } from 'redux-saga/effects';
 import {
+  SET_ACTIVE_PLACE,
   ACTIVE_PLACE_REQUEST,
+  activePlaceRequest,
   activePlaceSucess,
   activePlaceFail,
 } from '../redux/actions/cardClimateActions';
@@ -54,7 +56,14 @@ function* requestActivePlaceAsync(action) {
   }
 }
 
-export function* watchRequestMarkets() {
-  console.log('ACTIVE_PLACE_REQUEST :>> ', ACTIVE_PLACE_REQUEST);
+function* setActivePlaceOrchestrator(action) {
+  yield put(activePlaceRequest(action.payload));
+}
+
+export function* watchRequestActivePlace() {
   yield takeEvery(ACTIVE_PLACE_REQUEST, requestActivePlaceAsync);
+}
+
+export function* watchSetActivePlace() {
+  yield takeEvery(SET_ACTIVE_PLACE, setActivePlaceOrchestrator);
 }

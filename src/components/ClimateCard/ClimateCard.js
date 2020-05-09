@@ -10,6 +10,7 @@ import { setActivePlace } from '../../redux/actions/cardClimateActions';
 
 function ClimateCard(props) {
   const {
+    cardId,
     ownerCardName,
     cardPlaces,
     loading,
@@ -21,8 +22,9 @@ function ClimateCard(props) {
   const [modalIsVisible, setShowModalIsVisible] = useState(false);
 
   const handleOnOk = (values) => {
+    const { cityId } = values;
+    setActivePlaceById({ cardId: cardId, cityId: cityId });
     setShowModalIsVisible(false);
-    setActivePlaceById({ placeId: values.placeId });
   };
 
   const handleOnCancel = () => {
@@ -36,6 +38,7 @@ function ClimateCard(props) {
   //TODO: loading state is to small to reflect the usual size of the app
   return (
     <Card
+      style={{ margin: 2.5 }}
       loading={loading}
       title={ownerCardName}
       extra={<EditOutlined onClick={handleOnOpenSettings} />}
