@@ -8,7 +8,7 @@ export default {
       data: false,
       places: [
         {
-          id: 'p01',
+          id: '3515807',
           label: 'Cuautitlán Izcalli, Estado de México',
           value: 'a',
           lat: '19.42',
@@ -46,7 +46,7 @@ export default {
           lon: '101.90',
         },
         {
-          id: 'p06',
+          id: '3979654',
           label: 'Ziracuaretiro, Michoacán',
           value: 'b',
           lat: '19.42',
