@@ -25,11 +25,13 @@ function* requestActivePlaceAsync(action) {
   let dataToSave;
   try {
     const response = yield call(getClimateByCityId, { id: action.payload.cityId });
+    console.log('response :>> ', response);
     if (typeof response !== 'undefined' && response.status === 200) {
       dataToSave = {
         mainCard: {
           ...response.data.weather[0],
           temp: validateData(removeDecimals(response.data.main.temp)),
+          cityName: validateData(response.data.name),
         },
         dataGrid: {
           rain: validateData(response.data.rain),
