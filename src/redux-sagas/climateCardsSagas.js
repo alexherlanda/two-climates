@@ -36,6 +36,7 @@ function* requestActivePlaceAsync(action) {
           cityName: validateData(response.data.name),
         },
         dataGrid: {
+          feelsLike: validateData(removeDecimals(response.data.main.feels_like)),
           rain: validateData(response.data.rain),
           humidity: validateData(removeDecimals(response.data.main.humidity)),
           sunrise: validateData(response.data.sys.sunrise),

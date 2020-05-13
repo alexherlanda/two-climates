@@ -4,7 +4,7 @@ import { Card, Statistic, Row } from 'antd';
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import { gridStyle } from './styles';
 import moment from 'moment';
-
+import ClimateStatic from '../ClimateStatic';
 function ClimateDataGrid(props) {
   const { data } = props;
 
@@ -15,37 +15,45 @@ function ClimateDataGrid(props) {
 
   return (
     <Row align="middle" justify="center" style={{ marginTop: 20 }}>
-      <Card.Grid style={gridStyle} title="Prob. de precipitaciones">
-        <Statistic prefix={<ClimateIcon type="ubrella" />} value="19%" />
+      <Card.Grid style={gridStyle} title="Sensación térmica">
+        <ClimateStatic
+          value={data ? data.feelsLike + ' C°' : ''}
+          icon={<ClimateIcon type="sensation" />}
+        />
       </Card.Grid>
       <Card.Grid style={gridStyle} title="Amanecer">
-        <Statistic
-          prefix={<ClimateIcon type="dawn" />}
+        <ClimateStatic
           value={data ? formatHour(data.sunrise) : ''}
+          unit=""
+          icon={<ClimateIcon type="dawn" />}
         />
       </Card.Grid>
       <Card.Grid style={gridStyle} title="Maximo">
-        <Statistic
-          prefix={<CaretUpOutlined />}
-          value={data ? data.tempMax + 'C' : ''}
+        <ClimateStatic
+          value={data ? data.tempMax + ' C°' : ''}
+          unit=""
+          icon={<CaretUpOutlined style={{ fontSize: '36px' }} />}
         />
       </Card.Grid>
       <Card.Grid style={gridStyle} title="Humedad">
-        <Statistic
-          prefix={<ClimateIcon type="humidity" />}
+        <ClimateStatic
           value={data ? data.humidity + '%' : ' '}
+          unit=""
+          icon={<ClimateIcon type="humidity" />}
         />
       </Card.Grid>
       <Card.Grid style={gridStyle} title="Puesta del Sol">
-        <Statistic
-          prefix={<ClimateIcon type="sunset" />}
+        <ClimateStatic
           value={data ? formatHour(data.sunset) : ''}
+          unit=""
+          icon={<ClimateIcon type="sunset" />}
         />
       </Card.Grid>
       <Card.Grid style={gridStyle} title="Minimo">
-        <Statistic
-          prefix={<CaretDownOutlined />}
+        <ClimateStatic
           value={data ? data.tempMin + 'C' : ''}
+          unit=""
+          icon={<CaretDownOutlined style={{ fontSize: '36px' }} />}
         />
       </Card.Grid>
     </Row>

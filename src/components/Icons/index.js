@@ -17,11 +17,13 @@ import { ReactComponent as Icon10d } from '../../assets/flat-icon/10d.svg';
 import { ReactComponent as Icon11d } from '../../assets/flat-icon/11d.svg';
 import { ReactComponent as Icon13d } from '../../assets/flat-icon/13d.svg';
 import { ReactComponent as Icon50d } from '../../assets/flat-icon/50d.svg';
+import { ReactComponent as Sensation } from '../../assets/flat-icon/sensation.svg';
 
 const UbrellaIcon = (props) => <Icon component={Ubrella} {...props} />;
 const HumidityIcon = (props) => <Icon component={Humidity} {...props} />;
 const DawnIcon = (props) => <Icon component={Dawn} {...props} />;
 const SunsetIcon = (props) => <Icon component={Sunset} {...props} />;
+const SensationIcon = (props) => <Icon component={Sensation} {...props} />;
 
 const ClimateIcon01d = (props) => <Icon component={Icon01d} {...props} />;
 const ClimateIcon01n = (props) => <Icon component={Icon01n} {...props} />;
@@ -48,7 +50,7 @@ const ClimateIcon = (props) => {
       return (
         //Freepik
         <ClimateIcon01n
-          style={{ fontSize: '71px', marginBottom: '8px', color: '#434343' }}
+          style={{ fontSize: '65px', marginBottom: '17px', color: '#434343' }}
           {...props}
         />
       );
@@ -62,7 +64,7 @@ const ClimateIcon = (props) => {
     case '02n':
       return (
         //Freepik
-        <ClimateIcon02n style={{ fontSize: '80px', color: '#434343' }} {...props} />
+        <ClimateIcon02n style={{ fontSize: '82px', color: '#434343' }} {...props} />
       );
 
     case '03d':
@@ -158,7 +160,7 @@ const ClimateIcon = (props) => {
     case 'humidity':
       return (
         //Good Ware
-        <HumidityIcon style={{ fontSize: '30px', color: '#434343' }} {...props} />
+        <HumidityIcon style={{ fontSize: '36px', color: '#434343' }} {...props} />
       );
 
     case 'dawn':
@@ -171,6 +173,12 @@ const ClimateIcon = (props) => {
       return (
         //Freepik
         <SunsetIcon style={{ fontSize: '36px', color: '#434343' }} {...props} />
+      );
+
+    case 'sensation':
+      return (
+        //Freepik
+        <SensationIcon style={{ fontSize: '36px', color: '#434343' }} {...props} />
       );
 
     default:

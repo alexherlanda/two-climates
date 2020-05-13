@@ -36,7 +36,7 @@ function ConfigurationModal(props) {
           name="cityId"
           label={`¿Donde esta esta ${ownerCardName}?`}
         >
-          <Select size="large" placeholder="Selecciona una ciudad" showSearch>
+          <Select size="large" placeholder="Selecciona una ciudad">
             {createOptions()}
           </Select>
         </Form.Item>
