@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Card, Col, Row, Typography } from 'antd';
+import React from 'react';
+import { Col, Row, Typography } from 'antd';
 
 import PropTypes from 'prop-types';
 
 function ClimateStatic(props) {
-  const { value, unit, icon } = props;
+  const { value, icon } = props;
 
-  const { Text, Title } = Typography;
+  const { Text } = Typography;
 
   return (
     <>
@@ -16,9 +16,6 @@ function ClimateStatic(props) {
       <Row justify="center">
         <Col>
           <Text> {value} </Text>
-        </Col>
-        <Col>
-          <Text> {unit} </Text>
         </Col>
       </Row>
     </>

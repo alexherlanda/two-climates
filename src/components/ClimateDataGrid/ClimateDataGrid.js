@@ -1,6 +1,6 @@
 import React from 'react';
 import ClimateIcon from '../Icons';
-import { Card, Statistic, Row } from 'antd';
+import { Card, Row } from 'antd';
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import { gridStyle } from './styles';
 import moment from 'moment';

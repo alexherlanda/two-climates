@@ -23,6 +23,10 @@ export const itzelPlaces = [
     label: 'Ziracuaretiro, Michoacán',
   },
   {
+    id: '3979654',
+    label: 'Zirimicuaro , Michoacán',
+  },
+  {
     id: '3980760',
     label: 'Uruapan, Michoacán',
   },
