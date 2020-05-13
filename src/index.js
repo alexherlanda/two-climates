@@ -8,11 +8,11 @@ import { Provider } from 'react-redux';
 import appStore from './redux/store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <Provider store={appStore}>
       <App />
     </Provider>
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 
