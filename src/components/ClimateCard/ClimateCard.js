@@ -52,7 +52,7 @@ function ClimateCard(props) {
       />
 
       <Row align="middle" justify="center" style={{ marginBottom: 25 }}>
-        <ClimateIcon type="sunny" />
+        <ClimateIcon type={data ? data.mainCard.icon : undefined} />
       </Row>
       <Row align="middle" justify="center">
         <Title> {data ? data.mainCard.temp + '°' : ''} </Title>
