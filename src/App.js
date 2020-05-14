@@ -17,9 +17,11 @@ function App(props) {
     lg: 12,
     xl: 12,
   };
+
+  // TODO: Use a foreach in this case  read from cards in the state
   useEffect(() => {
     activePlaceReq({ cardId: '1', cityId: 3515807 });
-    activePlaceReq({ cardId: '2', cityId: 3979654 });
+    activePlaceReq({ cardId: '2', cityId: 3980760 });
   }, [activePlaceReq]);
 
   return (

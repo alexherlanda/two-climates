@@ -9,7 +9,7 @@ function ConfigurationModal(props) {
 
   const createOptions = () => {
     return cardPlaces.map((place) => (
-      <Option key={place.id} value={place.id}>
+      <Option key={place.id} value={place.cityId}>
         {place.label}
       </Option>
     ));
